@@ -1017,3 +1017,42 @@ nav {
   }
 }
 
+/* ===============================
+   CUSTOM CURSOR GLOW + TRAIL
+   =============================== */
+
+body {
+  cursor: none; /* hide default cursor */
+}
+
+/* Glow pointer (Style A) */
+.cursor-glow {
+  position: fixed;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: rgba(185, 135, 255, 0.6);
+  box-shadow: 0 0 36px rgba(180, 120, 255, 0.9);
+  z-index: 99999;
+  transition: transform 0.06s ease-out;
+}
+
+/* Laser trail dot (Style B) */
+.cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: rgba(190, 140, 255, 0.9);
+  box-shadow: 0 0 16px rgba(180, 120, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 60000;
+  animation: trailFade 0.65s linear forwards;
+}
+
+@keyframes trailFade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.35); }
+}
